@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { PrismaModule } from 'nestjs-prisma';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { TaskModule } from './modules/task/task.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       autoSchemaFile: './src/schema.graphql',
     }),
     PrismaModule.forRoot({ isGlobal: true }),
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],

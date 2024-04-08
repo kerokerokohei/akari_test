@@ -19,3 +19,8 @@ model Task {
   complete   Boolean @default(false)
   delete Boolean @default(false)
 }
+
+generator nestgraphql {
+    provider = "prisma-nestjs-graphql"
+    output = "../src/@generated/prisma-nestjs-graphql"
+}
