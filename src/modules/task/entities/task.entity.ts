@@ -1,7 +1,14 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field, ID } from '@nestjs/graphql';
 
 @ObjectType()
 export class Task {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @Field(() => ID)
+  id: number;
+  taskname: string;
+  complete: boolean;
+  delete: boolean;
+}
+@ObjectType()
+export class Tasks {
+  tasks: Task[];
 }
