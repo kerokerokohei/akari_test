@@ -17,7 +17,7 @@ model Task {
   id        Int     @default(autoincrement()) @id
   taskname     String
   complete   Boolean @default(false)
-  delete Boolean @default(false)
+  Isdeleted Boolean @default(false)
 }
 
 generator nestgraphql {
