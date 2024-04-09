@@ -26,8 +26,8 @@ input CreateTaskInput {
 }
 
 input UpdateTaskInput {
-  taskname: String
-  complete: Boolean
-  Isdeleted: Boolean
+  taskname: String!
+  complete: Boolean!
+  Isdeleted: Boolean!
   id: Int!
 }
