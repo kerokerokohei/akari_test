@@ -6,7 +6,7 @@ type Task {
   id: ID!
   taskname: String!
   complete: Boolean!
-  delete: Boolean!
+  Isdeleted: Boolean!
 }
 
 type Query {
@@ -15,17 +15,19 @@ type Query {
 
 type Mutation {
   createTask(createTaskInput: CreateTaskInput!): Task!
-  updateTask(updateTaskInput: UpdateTaskInput!): Task!
+  updateTask(id: Int!, updateTaskInput: UpdateTaskInput!): Task!
   removeTask(id: Int!): Task!
 }
 
 input CreateTaskInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  taskname: String!
+  complete: Boolean!
+  Isdeleted: Boolean!
 }
 
 input UpdateTaskInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  taskname: String
+  complete: Boolean
+  Isdeleted: Boolean
   id: Int!
 }

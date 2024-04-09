@@ -6,6 +6,6 @@ export class Task {
   id: number;
   taskname: string;
   complete: boolean;
-  delete: boolean;
+  isDeleted: boolean;
 }
 // 編集中

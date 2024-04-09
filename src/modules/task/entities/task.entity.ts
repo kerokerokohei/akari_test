@@ -6,7 +6,7 @@ export class Task {
   id: number;
   taskname: string;
   complete: boolean;
-  delete: boolean;
+  Isdeleted: boolean;
 }
 @ObjectType()
 export class Tasks {
