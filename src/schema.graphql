@@ -3,8 +3,10 @@
 # ------------------------------------------------------
 
 type Task {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  id: ID!
+  taskname: String!
+  complete: Boolean!
+  delete: Boolean!
 }
 
 type Query {
