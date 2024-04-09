@@ -7,10 +7,9 @@ const main = async () => {
   await prisma.task.deleteMany();
   await prisma.task.create({
     data: {
-      id: 12345,
       taskname: 'testtask1',
       complete: true,
-      delete: false,
+      Isdeleted: false,
     },
   });
   console.log('💫 seed finished.');
