@@ -1,5 +1,12 @@
 import React from "react";
 import { useGetAllTaskQuery } from "../TaskMutation";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  CircularProgress,
+  Typography,
+} from "@mui/material";
 
 export interface Task {
   id: number;
@@ -11,21 +18,30 @@ export interface Task {
 const Tasklist: React.FC = () => {
   const { data: Alltasks, loading, error } = useGetAllTaskQuery();
 
-  // ローディング状態またはエラー発生時のハンドリング
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) {
+    return (
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
 
-  // Alltasks および Alltasks.task の存在を確認し、配列として扱う
+  if (error) {
+    return <Typography color="error">Error: {error.message}</Typography>;
+  }
+
   return (
-    <>
+    <List>
       {Alltasks &&
         Alltasks.tasks &&
         Alltasks.tasks.map((task: Task) => (
-          <div key={task.id}>
-            <div>{`Task Name: ${task.taskname}`}</div>
-          </div>
+          <ListItem key={task.id}>
+            <ListItemText primary={`Task Name: ${task.taskname}`} />
+          </ListItem>
         ))}
-    </>
+    </List>
   );
 };
 
