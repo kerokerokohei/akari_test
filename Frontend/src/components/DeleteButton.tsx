@@ -1,6 +1,6 @@
 import React from "react";
 import { useRemoveTaskMutation } from "../TaskMutation";
-import { Task } from "./Tasklist";
+import { Task } from "../types/Task.type";
 
 const DeleteButton: React.FC<Task> = ({
   id,
