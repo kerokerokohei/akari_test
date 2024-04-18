@@ -12,8 +12,8 @@ export const GET_ALL_TASKS = gql`
 `;
 
 export const CREATE_TASK = gql`
-  mutation createTask($taskname: String!) {
-    createTask(taskname: $taskname) {
+  mutation createTask($createTaskInput: CreateTaskInput!) {
+    createTask(createTaskInput: $createTaskInput) {
       id
       taskname
       complete
@@ -21,26 +21,12 @@ export const CREATE_TASK = gql`
     }
   }
 `;
+
 export const UPDATE_TASK = gql`
-  mutation UpdateTask(
-    $id: Int!
-    $taskname: String!
-    $complete: Boolean!
-    $Isdeleted: Boolean!
-  ) {
-    updateTask(
-      id: $id
-      updateTaskInput: {
-        id: $id
-        taskname: $taskname
-        complete: $complete
-        Isdeleted: $Isdeleted
-      }
-    ) {
+  mutation UpdateTask($updateTaskInput: UpdateTaskInput!) {
+    updateTask(updateTaskInput: $updateTaskInput) {
       id
       taskname
-      complete
-      Isdeleted
     }
   }
 `;
