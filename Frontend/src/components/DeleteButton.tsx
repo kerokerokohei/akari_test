@@ -2,13 +2,8 @@ import React from "react";
 import { useRemoveTaskMutation } from "../TaskMutation";
 import { Task } from "../types/Task.type";
 
-const DeleteButton: React.FC<Task> = ({
-  id,
-  taskname,
-  complete,
-  Isdeleted,
-}) => {
-  const [deleteteTask, { error }] = useRemoveTaskMutation();
+const DeleteButton: React.FC<Task> = ({ id }) => {
+  const [deleteteTask] = useRemoveTaskMutation();
 
   const handleDeleteTask = async () => {
     try {

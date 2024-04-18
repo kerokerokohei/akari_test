@@ -14,7 +14,7 @@ const CompleteButton: React.FC<Task> = ({
   complete,
   Isdeleted,
 }) => {
-  const [updateTask, { error }] = useUpdateTaskMutation();
+  const [updateTask] = useUpdateTaskMutation();
 
   const handleCompleteTask = async () => {
     try {

@@ -10,7 +10,6 @@ export interface Task {
 
 const Taskinput: React.FC = () => {
   const [taskname, setTaskname] = React.useState("");
-  const [error, setError] = React.useState("");
   const [createTask] = useCreateTaskMutation();
 
   const handleCreateTask = async () => {
@@ -27,7 +26,6 @@ const Taskinput: React.FC = () => {
       setTaskname("");
     } catch (error) {
       console.error(error);
-      setError("Failed to create task. Please check the input and try again.");
     }
   };
 
