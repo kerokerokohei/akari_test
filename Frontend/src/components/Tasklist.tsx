@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGetAllTaskQuery } from "../TaskMutation";
+import CompleteButton from "./CompleteButton";
+import DeleteButton from "./DeleteButton";
+import { Task } from "../types/Task.type";
+
 import {
   List,
   ListItem,
@@ -7,13 +11,6 @@ import {
   CircularProgress,
   Typography,
 } from "@mui/material";
-
-export interface Task {
-  id: number;
-  taskname: string;
-  complete: boolean;
-  Isdeleted: boolean;
-}
 
 const Tasklist: React.FC = () => {
   const { data: Alltasks, loading, error } = useGetAllTaskQuery();
@@ -36,9 +33,12 @@ const Tasklist: React.FC = () => {
     <List>
       {Alltasks &&
         Alltasks.tasks &&
+        !Alltasks.tasks.Isdeleted &&
         Alltasks.tasks.map((task: Task) => (
           <ListItem key={task.id}>
             <ListItemText primary={`Task Name: ${task.taskname}`} />
+            <CompleteButton {...task} />
+            <DeleteButton {...task} />
           </ListItem>
         ))}
     </List>
