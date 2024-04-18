@@ -27,7 +27,7 @@ const DeleteButton: React.FC<Task> = ({
 
   return (
     <button onClick={handleDeleteTask} style={{ marginLeft: "10px" }}>
-      Delete
+      削除
     </button>
   );
 };

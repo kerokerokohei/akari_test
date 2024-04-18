@@ -38,7 +38,7 @@ const CompleteButton: React.FC<Task> = ({
 
   return (
     <button onClick={handleCompleteTask} style={{ marginLeft: "10px" }}>
-      {complete ? "Mark as Incomplete" : "Mark as Complete"}
+      {complete ? "未完了" : "完了"}
     </button>
   );
 };
